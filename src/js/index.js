@@ -4,3 +4,4 @@ import 'tether';
 import 'popper.js';
 import 'bootstrap/js/dist/modal';
 import '../scss/styles.scss';
+import '../css/styles.css';
