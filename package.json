@@ -2,7 +2,7 @@
   "name": "bootstrap-basic-landing-page",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "https://francislagares.github.io/bootstrap-landing-page/",
+  "homepage": "https://francislagares.github.io/bootstrap-basic-landing-page/",
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
