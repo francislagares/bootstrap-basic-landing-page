@@ -3,16 +3,17 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/js/index.js',
+  entry: './src/js/main.js',
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'js/bundle.js'
+    filename: 'js/[name].bundle.js',
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    overlay: true
   },
-  mode: 'development',
 
   module: {
     rules: [
@@ -21,16 +22,16 @@ module.exports = {
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
-        }
+        },
       },
       {
         test: /\.html$/,
         use: [
           {
             loader: 'html-loader',
-            options: { minimize: false }
-          }
-        ]
+            options: { minimize: false },
+          },
+        ],
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -39,7 +40,7 @@ module.exports = {
           'css-loader',
           'postcss-loader',
           'sass-loader',
-        ]
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
@@ -48,10 +49,10 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[hash].[ext]',
-              outputPath: 'images'
-            }
-          }
-        ]
+              outputPath: 'images',
+            },
+          },
+        ],
       },
       {
         test: /\.(woff|woff2|ttf|otf|eot)$/,
@@ -59,20 +60,20 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: 'fonts'
-            }
-          }
-        ]
+              name: '[name].[hash].[ext]',
+              outputPath: 'fonts',
+            },
+          },
+        ],
       },
-    ]
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      filename: 'index.html',
       template: 'src/index.html',
     }),
     new MiniCssExtractPlugin({
       filename: 'css/styles.css',
-    })
-  ]
+    }),
+  ],
 };
