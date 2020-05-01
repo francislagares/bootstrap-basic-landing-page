@@ -14,7 +14,7 @@ module.exports = merge(common, {
   output: {
     filename: 'js/[name].[contentHash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/bootstrap-basic-landing-page/' // To publish in Github Pages you will want to change it to repo folder name /bootstrap-basic-landing-page/ in this case.
+    publicPath: '/' // To publish in Github Pages you will want to change it to repo folder name /bootstrap-basic-landing-page/ in this case.
   },
   optimization: {
     minimizer: [new OptimizeCssAssetsPlugin({}), new TerserPlugin({})]
