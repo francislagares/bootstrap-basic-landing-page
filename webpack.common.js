@@ -21,19 +21,20 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
+        test: /\.(png|jpe?g|gif|svg)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[hash].[ext]',
-              outputPath: 'img'
+              outputPath: 'images'
             }
           }
         ]
       },
       {
         test: /\.(woff|woff2|ttf|otf|eot|svg)$/,
+        exclude: path.resolve(__dirname, 'src/images/logo.svg'),
         use: [
           {
             loader: 'file-loader',
